@@ -1,0 +1,6 @@
+federation_version: =2.3.2
+subgraphs:
+  Neeraj-test:
+    routing_url: http://127.0.0.1:4001/graphql
+    schema:
+      file: ./schema.graphql

@@ -1,0 +1,7 @@
+{
+  "name": "demo-subgraph",
+  "type": "module",
+  "dependencies": {
+    "@apollo/server": "^5.0.0"
+  }
+}
