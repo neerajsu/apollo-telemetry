@@ -1,8 +1,10 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { readFileSync } from "fs";
+import { buildSubgraphSchema } from "@apollo/subgraph";
+import gql from "graphql-tag";
 
-const typeDefs = readFileSync("./schema.graphql", "utf8");
+const typeDefs = gql(readFileSync("./schema.graphql", "utf8"));
 
 // --- Mock Data ---
 const authors = [
@@ -36,8 +38,10 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema: buildSubgraphSchema({
+    typeDefs,
+    resolvers,
+  }),
 });
 
 // Start Apollo Server
@@ -47,4 +51,4 @@ const { url } = await startStandaloneServer(server, {
   listen: { port: 4001 },
 });
 
-console.log(`🚀 Subgraph running at ${url}`);
+console.log(`Subgraph running at ${url}`);

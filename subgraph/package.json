@@ -2,6 +2,10 @@
   "name": "demo-subgraph",
   "type": "module",
   "dependencies": {
-    "@apollo/server": "^5.0.0"
+    "@apollo/server": "^5.0.0",
+    "@apollo/subgraph": "^2.11.2",
+    "graphql-tag": "^2.12.6",
+    "@graphql-tools/schema": "^10.0.25",
+    "graphql": "^16.10.0"
   }
 }
